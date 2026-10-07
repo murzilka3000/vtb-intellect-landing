@@ -16,8 +16,12 @@ export default function Strategies() {
         </p>
 
         <ul className={styles.list}>
-          {strategies.map((item) => (
-            <li key={item.id} className={`${styles.card} ${styles[item.variant]}`}>
+          {strategies.map((item, i) => (
+            <li
+              key={item.id}
+              className={`${styles.card} ${styles[item.variant]}`}
+              style={{ "--i": i } as React.CSSProperties}
+            >
               <span className={styles.num}>{item.num}</span>
               <div className={styles.body}>
                 <span className={styles.tag}>{item.tag}</span>

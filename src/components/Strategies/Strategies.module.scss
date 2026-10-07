@@ -6,7 +6,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .strategies {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   margin-top: calc(#{dvw(82)} * -1);
   padding: dvw(140) dvw(56) dvw(139);
   background: $color-section-bg;
@@ -21,6 +21,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   position: absolute;
   background: $gradient-blob;
   pointer-events: none;
+  will-change: transform;
 }
 
 .blobRight {
@@ -31,6 +32,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   border-radius: 50%;
   opacity: 0.42;
   filter: blur(105px);
+  animation: blob-drift 14s ease-in-out infinite;
 
   @include mobile {
     top: 187px;
@@ -48,6 +50,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   border-radius: dvw(120);
   opacity: 0.24;
   filter: blur(48px);
+  animation: blob-drift 18s ease-in-out infinite reverse;
 
   @include mobile {
     top: auto;
@@ -109,7 +112,9 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 }
 
 .card {
-  position: relative;
+  position: sticky;
+  top: calc(#{dvw(100)} + var(--i) * #{dvw(24)});
+  box-shadow: 0 -10px 40px rgba(5, 0, 54, 0.08);
   display: grid;
   grid-template-columns: dvw(201) minmax(0, 650px) 1fr;
   align-items: start;
@@ -121,6 +126,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   @include mobile {
     display: flex;
     flex-direction: column;
+    top: calc(40px + var(--i) * 14px);
     min-height: 460px;
     padding: 30px 20px;
   }
@@ -195,6 +201,9 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     inset: 0;
     background: radial-gradient(closest-side, var(--glow), transparent);
     opacity: var(--glow-opacity);
+    filter: blur(12px);
+    animation: glow 5s ease-in-out infinite;
+    animation-delay: calc(var(--i) * -1.2s);
   }
 
   @include mobile {
@@ -206,6 +215,55 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .imageImg {
   object-fit: contain;
+  animation: float 5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.2s);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-4%) rotate(1deg);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: calc(var(--glow-opacity) * 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: var(--glow-opacity);
+  }
+}
+
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-6%, 8%) scale(1.15);
+  }
+
+  66% {
+    transform: translate(5%, -5%) scale(0.88);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .imageImg,
+  .image::before {
+    animation: none;
+  }
 }
 
 .light {
@@ -217,7 +275,8 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     rgba(255, 255, 255, 0.8) 0%,
     rgba(255, 255, 255, 0.8) 66%,
     rgba(210, 232, 255, 0.8) 100%
-  );
+  ),
+  $color-section-bg;
 
   .num {
     color: rgba(213, 228, 255, 0.5);
@@ -270,7 +329,8 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     rgba(218, 233, 255, 0.16) 0%,
     rgba(221, 238, 255, 0.8) 42%,
     rgba(204, 226, 255, 0.8) 100%
-  );
+  ),
+  $color-section-bg;
 
   .num {
     color: rgba(174, 205, 251, 0.5);

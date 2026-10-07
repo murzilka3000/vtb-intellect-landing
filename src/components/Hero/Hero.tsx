@@ -46,8 +46,8 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          «Интеллект» от ВТБ Мои Инвестиции: стратегия инвестиций, которая
-          подходит именно вам
+          <span className={styles.titleLine}>«Интеллект» от ВТБ Мои Инвестиции: стратегия</span>{" "}
+          <span className={styles.titleLine}>инвестиций, которая подходит именно вам</span>
         </h1>
         <p className={styles.subtitle}>
           Четыре стратегии. Разные подходы к&nbsp;рынку. Найдите свою.

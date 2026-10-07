@@ -61,6 +61,24 @@
 
 .imageImg {
   object-fit: fill;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-3%) rotate(1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageImg {
+    animation: none;
+  }
 }
 
 .shade {
