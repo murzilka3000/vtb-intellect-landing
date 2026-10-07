@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function dvw($px) {
+  @return min(#{$px}px, #{math.div($px, 1440) * 100}vw);
+}
+
+@function fluid($min, $max) {
+  @return clamp(#{$min}px, #{math.div($max, 1440) * 100}vw, #{$max}px);
+}
