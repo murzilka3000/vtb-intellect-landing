@@ -1,18 +1,21 @@
 import Image from "next/image";
 import styles from "./Hero.module.scss";
+import HeroCrystal from "./HeroCrystal";
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.bg} aria-hidden="true">
         <div className={styles.video}>
-          <Image
-            src="/images/hero/hero-bg.jpg"
-            alt=""
-            fill
-            priority
-            sizes="120vw"
+          <video
             className={styles.videoMedia}
+            src="/videos/hero-bg.mp4"
+            poster="/images/hero/hero-bg.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
           />
         </div>
         <div className={styles.tint} />
@@ -34,14 +37,7 @@ export default function Hero() {
 
       <div className={styles.crystal} aria-hidden="true">
         <div className={styles.glow} />
-        <Image
-          src="/images/hero/crystal.png"
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 767px) 400px, 640px"
-          className={styles.crystalImg}
-        />
+        <HeroCrystal className={styles.crystalCanvas} />
       </div>
 
       <div className={styles.content}>
