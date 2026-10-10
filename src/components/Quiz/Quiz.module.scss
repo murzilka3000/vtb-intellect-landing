@@ -48,9 +48,9 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
   @include mobile {
     top: -250px;
-    left: -57px;
-    width: 507px;
-    filter: blur(46px);
+    left: -40px;
+    width: 400px;
+    filter: blur(40px);
   }
 }
 
