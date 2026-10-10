@@ -35,19 +35,21 @@ export default function Hero() {
         className={styles.logo}
       />
 
-      <div className={styles.crystal} aria-hidden="true">
-        <div className={styles.glow} />
-        <HeroCrystal className={styles.crystalCanvas} />
-      </div>
+      <div className={styles.stage}>
+        <div className={styles.crystal} aria-hidden="true">
+          <div className={styles.glow} />
+          <HeroCrystal className={styles.crystalCanvas} />
+        </div>
 
-      <div className={styles.content}>
-        <h1 className={styles.title}>
-          <span className={styles.titleLine}>«Интеллект» от ВТБ Мои Инвестиции: стратегия</span>{" "}
-          <span className={styles.titleLine}>инвестиций, которая подходит именно вам</span>
-        </h1>
-        <p className={styles.subtitle}>
-          Четыре стратегии. Разные подходы к&nbsp;рынку. Найдите свою.
-        </p>
+        <div className={styles.content}>
+          <h1 className={styles.title}>
+            <span className={styles.titleLine}>«Интеллект» от ВТБ Мои Инвестиции: стратегия</span>{" "}
+            <span className={styles.titleLine}>инвестиций, которая подходит именно вам</span>
+          </h1>
+          <p className={styles.subtitle}>
+            Четыре стратегии. Разные подходы к&nbsp;рынку. Найдите свою.
+          </p>
+        </div>
       </div>
     </section>
   );

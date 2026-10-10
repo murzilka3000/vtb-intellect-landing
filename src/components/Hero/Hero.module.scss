@@ -3,7 +3,7 @@
 @use "../../styles/mixins" as *;
 
 .hero {
-  --crystal-size: #{dvw(640)};
+  --crystal-size: max(380px, min(#{dvw(640)}, calc((100svh - 220px) / 0.917)));
   --crystal-top: #{dvw(21)};
 
   position: relative;
@@ -12,7 +12,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: dvw(130);
+  justify-content: center;
+  min-height: calc(100svh + #{dvw(105)});
+  padding-bottom: calc(#{dvw(105)} + #{dvw(40)});
   background: $color-page-bg;
   color: $color-white;
   text-align: center;
@@ -21,7 +23,8 @@
     --crystal-size: min(400px, 93vw);
     --crystal-top: 34px;
 
-    padding-bottom: 70px;
+    min-height: calc(100svh + 46px);
+    padding-bottom: 116px;
   }
 }
 
@@ -178,6 +181,14 @@
   }
 }
 
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .crystal {
   position: absolute;
   top: var(--crystal-top);
@@ -194,6 +205,7 @@
   left: -6.1%;
   width: 112%;
   aspect-ratio: 1;
+  animation: glow-pulse 4.5s ease-in-out infinite;
   background: radial-gradient(
     45.5% 45.5% at 50% 54.5%,
     rgba(255, 255, 255, 0.5) 0%,
@@ -266,6 +278,19 @@
   }
 }
 
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
 @keyframes blob-drift {
   0%,
   100% {
@@ -290,7 +315,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .blob {
+  .blob,
+  .glow {
     animation: none;
   }
 }

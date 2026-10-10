@@ -1,9 +1,9 @@
+import { quizResults } from "./quizResults";
 import type { StrategyId } from "./strategies";
 
 export type QuizOption = {
   title: string;
   text: string;
-  scores: Partial<Record<StrategyId, number>>;
 };
 
 export type QuizQuestion = {
@@ -11,33 +11,30 @@ export type QuizQuestion = {
   options: QuizOption[];
 };
 
-const careful = { conservative: 2, eternal: 1 };
-const balanced = { eternal: 2, euler: 1, ai: 1 };
-const bold = { euler: 2, ai: 2 };
-
 export const quiz: QuizQuestion[] = [
   {
     question: "Какой у вас опыт\nинвестирования?",
     options: [
-      { title: "Только начинаю", text: "Хочу разобраться и начать с малого", scores: careful },
-      { title: "Есть опыт", text: "Понимаю рынки и могу оценить риски", scores: balanced },
-      { title: "Уверенный инвестор", text: "Самостоятельно собираю и меняю портфель", scores: bold },
+      { title: "Новичок", text: "Только начинаю, хочу разобраться и начать с малого" },
+      { title: "Базовый", text: "Знаю основы, слежу за рынком и покупаю активы" },
+      { title: "Опытный", text: "Понимаю рынки и могу оценить риски" },
+      { title: "Профессионал", text: "Есть профильный опыт или образование" },
     ],
   },
   {
-    question: "Как вы относитесь\nк колебаниям рынка?",
+    question: "Как вы относитесь\nк снижению рынка?",
     options: [
-      { title: "Избегаю просадок", text: "Даже небольшое снижение заставляет меня сокращать риск", scores: careful },
-      { title: "Спокойно", text: "Снижения — нормальная часть рынка, я могу подождать", scores: balanced },
-      { title: "Комфортно с риском", text: "Сильные колебания приемлемы ради высокой потенциальной доходности", scores: bold },
+      { title: "Негативно", text: "Даже небольшое снижение заставляет меня сокращать риск" },
+      { title: "Нормально", text: "Снижения — нормальная часть рынка, я могу подождать" },
+      { title: "Позитивно", text: "Готов докупать активы во время снижения" },
     ],
   },
   {
     question: "На какой срок\nвы готовы инвестировать?",
     options: [
-      { title: "1–2 года", text: "Готов ждать, но не слишком долго", scores: careful },
-      { title: "2–3 года", text: "Комфортный среднесрочный горизонт", scores: balanced },
-      { title: "Более 5 лет", text: "Смотрю на инвестиции как на долгосрочный капитал", scores: bold },
+      { title: "До 1 года", text: "Мне важна высокая ликвидность и короткий горизонт" },
+      { title: "1–3 года", text: "Готов ждать, но не слишком долго" },
+      { title: "Более 3 лет", text: "Могу переждать несколько рыночных циклов" },
     ],
   },
   {
@@ -46,41 +43,27 @@ export const quiz: QuizQuestion[] = [
       {
         title: "Сохранение капитала",
         text: "Главное — не потерять деньги и обогнать инфляцию, даже ценой низкой доходности",
-        scores: careful,
       },
       {
         title: "Сбалансированность",
         text: "Я хочу, чтобы портфель работал в любую погоду,\nбез экстремальных скачков",
-        scores: balanced,
       },
       {
         title: "Максимальная доходность",
         text: "Я готов к высоким рискам ради возможности значительно обогнать рынок",
-        scores: bold,
       },
     ],
   },
   {
     question: "Кому вы готовы\nдоверить решения?",
     options: [
-      { title: "Экспертам", text: "Мне важно понимать логику решений аналитиков", scores: { euler: 3 } },
-      { title: "Правилам стратегии", text: "Предпочитаю прозрачную и понятную систему", scores: { eternal: 2, conservative: 1 } },
-      { title: "Алгоритмам", text: "Доверяю данным, моделям и количественному анализу", scores: { ai: 3 } },
+      { title: "Аналитикам", text: "Мне важно понимать логику решений экспертов" },
+      { title: "Технологиям", text: "Доверяю данным, моделям и количественному анализу" },
+      { title: "Не важно", text: "Подход вторичен — важнее итог стратегии" },
     ],
   },
 ];
 
-const priority: StrategyId[] = ["conservative", "eternal", "euler", "ai"];
-
 export function getResult(answers: number[]): StrategyId {
-  const total: Record<StrategyId, number> = { conservative: 0, eternal: 0, euler: 0, ai: 0 };
-
-  answers.forEach((optionIndex, questionIndex) => {
-    const scores = quiz[questionIndex]?.options[optionIndex]?.scores ?? {};
-    for (const [id, value] of Object.entries(scores) as [StrategyId, number][]) {
-      total[id] += value;
-    }
-  });
-
-  return priority.reduce((best, id) => (total[id] > total[best] ? id : best), priority[0]);
+  return quizResults[answers.join("")];
 }

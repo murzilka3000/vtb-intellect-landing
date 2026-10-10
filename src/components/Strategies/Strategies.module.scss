@@ -8,7 +8,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   position: relative;
   overflow: clip;
   margin-top: calc(#{dvw(82)} * -1);
-  padding: dvw(140) dvw(56) dvw(139);
+  padding: dvw(140) $gutter dvw(139);
   background: $color-section-bg;
 
   @include mobile {
@@ -113,11 +113,14 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .card {
   position: sticky;
+  transform: scale(var(--scale, 1));
+  transform-origin: top center;
+  will-change: transform;
   top: calc(#{dvw(100)} + var(--i) * #{dvw(24)});
   box-shadow: 0 -10px 40px rgba(5, 0, 54, 0.08);
   display: grid;
-  grid-template-columns: dvw(201) minmax(0, 650px) 1fr;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   min-height: dvw(340);
   padding: dvw(50);
   border-radius: 26px;
@@ -129,6 +132,17 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     top: calc(40px + var(--i) * 14px);
     min-height: 460px;
     padding: 30px 20px;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: dvw(201) minmax(0, 650px);
+  align-items: start;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -190,10 +204,9 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .image {
   position: relative;
-  justify-self: end;
   width: dvw(260);
   aspect-ratio: 1;
-  margin: dvw(-20) dvw(16) 0 0;
+  margin-right: dvw(16);
 
   &::before {
     content: "";
@@ -275,8 +288,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     rgba(255, 255, 255, 0.8) 0%,
     rgba(255, 255, 255, 0.8) 66%,
     rgba(210, 232, 255, 0.8) 100%
-  ),
-  $color-section-bg;
+  );
 
   .num {
     color: rgba(213, 228, 255, 0.5);

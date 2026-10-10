@@ -7,7 +7,7 @@
   z-index: 1;
   overflow: hidden;
   margin-top: calc(#{dvw(105)} * -1);
-  padding: dvw(53) dvw(56) dvw(49);
+  padding: dvw(53) $gutter dvw(49);
   border-radius: $radius-section;
   background: $color-white;
   color: $color-text;
@@ -26,7 +26,7 @@
   aspect-ratio: 931 / 853;
   border-radius: dvw(500);
   opacity: 0.28;
-  filter: blur(100px);
+  filter: blur(50px);
   background: linear-gradient(331deg, #ffb724 0%, #e93ac5 25%, #8e59ff 100%);
   pointer-events: none;
 
@@ -35,7 +35,7 @@
     left: 155px;
     width: 484px;
     border-radius: 260px;
-    filter: blur(52px);
+    filter: blur(26px);
   }
 }
 

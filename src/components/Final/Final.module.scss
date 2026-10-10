@@ -4,20 +4,26 @@
 
 .final {
   position: relative;
+  z-index: 2;
   isolation: isolate;
+  margin-top: -$radius-section;
   overflow: hidden;
-  padding: dvw(64) dvw(56) dvw(44);
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: dvw(64) $gutter dvw(44);
   border-radius: $radius-section $radius-section 0 0;
-  background: linear-gradient(
-    100deg,
-    $color-brand-dark 0%,
-    rgba(0, 102, 249, 0.5) 55%,
-    rgba(255, 183, 36, 0.5) 100%
-  );
+  background:
+    linear-gradient(
+      100deg,
+      $color-brand-dark 0%,
+      rgba(0, 102, 249, 0.5) 55%,
+      rgba(255, 183, 36, 0.5) 100%
+    ),
+    $color-white;
   color: $color-white;
 
   @include mobile {
-    margin-top: 27px;
     padding: 50px 20px 22px;
   }
 }
@@ -97,6 +103,10 @@
 }
 
 .container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
   max-width: $container;
   margin: 0 auto;
 }
@@ -137,6 +147,8 @@
 }
 
 .button {
+  align-self: flex-start;
+  margin-bottom: dvw(91);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +179,7 @@
 }
 
 .legal {
-  margin-top: dvw(91);
+  margin-top: auto;
   padding-top: dvw(30);
   border-top: 1px solid rgba(186, 187, 191, 0.5);
 

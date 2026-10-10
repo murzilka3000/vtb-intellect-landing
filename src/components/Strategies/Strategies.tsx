@@ -1,6 +1,5 @@
-import Image from "next/image";
-import { strategies } from "@/data/strategies";
 import styles from "./Strategies.module.scss";
+import StrategyList from "./StrategyList";
 
 export default function Strategies() {
   return (
@@ -15,31 +14,7 @@ export default function Strategies() {
           У каждой стратегии своя логика, познакомьтесь с&nbsp;ними
         </p>
 
-        <ul className={styles.list}>
-          {strategies.map((item, i) => (
-            <li
-              key={item.id}
-              className={`${styles.card} ${styles[item.variant]}`}
-              style={{ "--i": i } as React.CSSProperties}
-            >
-              <span className={styles.num}>{item.num}</span>
-              <div className={styles.body}>
-                <span className={styles.tag}>{item.tag}</span>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.text}</p>
-              </div>
-              <div className={styles.image}>
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 767px) 161px, 260px"
-                  className={styles.imageImg}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
+        <StrategyList />
       </div>
     </section>
   );
