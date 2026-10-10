@@ -42,7 +42,7 @@ export default function Quiz() {
 
           <div key={result.id} className={`${styles.container} ${styles.fade}`}>
             <div className={styles.resultHead}>
-              <p className={styles.eyebrow}>Вам подходит</p>
+              <p className={styles.eyebrow}>Вам&nbsp;подходит</p>
               <h2 className={styles.resultTitle}>{result.title}</h2>
               <p className={styles.resultLead}>{result.result.lead}</p>
             </div>
@@ -59,11 +59,11 @@ export default function Quiz() {
 
             <div className={styles.details}>
               <div className={styles.detailsBlock}>
-                <h3 className={styles.detailsTitle}>Почему мы это рекомендуем:</h3>
+                <h3 className={styles.detailsTitle}>Почему мы&nbsp;это рекомендуем:</h3>
                 <p className={styles.detailsText}>{result.result.why}</p>
               </div>
               <div className={styles.detailsBlock}>
-                <h3 className={styles.detailsTitle}>Что внутри:</h3>
+                <h3 className={styles.detailsTitle}>Что&nbsp;внутри:</h3>
                 <ul className={styles.detailsText}>
                   {result.result.inside.map((line) => (
                     <li key={line}>{line}</li>
@@ -90,9 +90,9 @@ export default function Quiz() {
             <p className={styles.eyebrow}>Найдите свой подход</p>
             <h2 className={styles.title}>
               <span>Какая стратегия</span>
-              <span>вам ближе?</span>
+              <span>вам&nbsp;ближе?</span>
             </h2>
-            <p className={styles.subtitle}>Пять вопросов об опыте, целях и отношении к риску</p>
+            <p className={styles.subtitle}>Пять вопросов об&nbsp;опыте, целях и&nbsp;отношении к&nbsp;риску</p>
 
             <div className={styles.grid}>
               <div className={styles.side}>

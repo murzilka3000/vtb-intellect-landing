@@ -6,8 +6,8 @@ const steps = [
     title: "Узнаёт вас",
     text: (
       <>
-        Опрос об опыте, целях и готовности
-        <br />к колебаниям рынка
+        Опрос об&nbsp;опыте, целях и&nbsp;готовности
+        <br />к&nbsp;колебаниям рынка
       </>
     ),
   },
@@ -16,15 +16,15 @@ const steps = [
     title: "Подбирает подход",
     text: (
       <>
-        Четыре стратегии от аналитиков
-        <br />и на основе алгоритмов
+        Четыре стратегии от&nbsp;аналитиков
+        <br />и&nbsp;на&nbsp;основе алгоритмов
       </>
     ),
   },
   {
     num: "03",
     title: "Объясняет решения",
-    text: "Баланс, доходность и комментарии экспертов в приложении",
+    text: "Баланс, доходность и\u00a0комментарии экспертов в\u00a0приложении",
   },
 ];
 
@@ -34,21 +34,21 @@ export default function About() {
       <div className={styles.blob} aria-hidden="true" />
 
       <div className={styles.container}>
-        <p className={styles.eyebrow}>Не нужно думать как аналитик</p>
+        <p className={styles.eyebrow}>Не&nbsp;нужно думать как&nbsp;аналитик</p>
         <h2 className={styles.title}>
           <span>Достаточно понимать,</span>
-          <span className={styles.accent}>что важно именно вам</span>
+          <span className={styles.accent}>что&nbsp;важно именно вам</span>
         </h2>
 
         <div className={styles.intro}>
           <p className={styles.lead}>
-            Вы — отправная
+            Вы&nbsp;— отправная
             <br />
             точка стратегии
           </p>
           <p className={styles.text}>
-            Сервис «Интеллект» знакомится с вашими целями, опытом и отношением
-            к&nbsp;риску и помогает выбрать инвестиционную стратегию
+            Сервис «Интеллект» знакомится с&nbsp;вашими целями, опытом и&nbsp;отношением
+            к&nbsp;риску и&nbsp;помогает выбрать инвестиционную стратегию
           </p>
         </div>
 

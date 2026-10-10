@@ -8,10 +8,10 @@ export default function Strategies() {
       <div className={`${styles.blob} ${styles.blobLeft}`} aria-hidden="true" />
 
       <div className={styles.container}>
-        <p className={styles.eyebrow}>Четыре стратегии — четыре характера</p>
+        <p className={styles.eyebrow}>Четыре стратегии&nbsp;— четыре характера</p>
         <h2 className={styles.title}>Какой подход ваш?</h2>
         <p className={styles.subtitle}>
-          У каждой стратегии своя логика, познакомьтесь с&nbsp;ними
+          У&nbsp;каждой стратегии своя логика, познакомьтесь с&nbsp;ними
         </p>
 
         <StrategyList />

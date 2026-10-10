@@ -18,14 +18,14 @@ export default function Final() {
       <div className={styles.shade} aria-hidden="true" />
 
       <div className={styles.container}>
-        <p className={styles.eyebrow}>У каждого — свой подход</p>
+        <p className={styles.eyebrow}>У&nbsp;каждого&nbsp;— свой подход</p>
         <h2 className={styles.title}>
           <span>Ваш характер</span>
           <span>Ваша стратегия</span>
         </h2>
         <p className={styles.lead}>
-          Познакомьтесь с «Интеллектом»
-          <br />в ВТБ Мои Инвестиции
+          Познакомьтесь с&nbsp;«Интеллектом»
+          <br />в&nbsp;ВТБ Мои Инвестиции
         </p>
 
         <a href={CONNECT_URL} className={styles.button}>
