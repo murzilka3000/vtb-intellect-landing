@@ -201,6 +201,10 @@
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
 
+  @media (min-width: #{$bp-mobile + 1}) and (max-aspect-ratio: 1 / 1) {
+    height: min(128%, 82vw);
+  }
+
   @include mobile {
     height: min(128%, 93vw, 400px);
   }
