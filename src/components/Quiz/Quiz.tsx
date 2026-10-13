@@ -78,7 +78,7 @@ export default function Quiz() {
             </div>
 
             <div className={styles.actions}>
-              <a href={CONNECT_URL} className={styles.button}>
+              <a href={CONNECT_URL} className={styles.button} target="_blank" rel="noopener noreferrer">
                 Подключить стратегию
               </a>
               <button type="button" className={styles.secondary} onClick={restart}>
