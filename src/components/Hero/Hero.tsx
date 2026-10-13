@@ -36,9 +36,11 @@ export default function Hero() {
       />
 
       <div className={styles.stage}>
-        <div className={styles.crystal} aria-hidden="true">
-          <div className={styles.glow} />
-          <HeroCrystal className={styles.crystalCanvas} />
+        <div className={styles.crystalZone}>
+          <div className={styles.crystal} aria-hidden="true">
+            <div className={styles.glow} />
+            <HeroCrystal className={styles.crystalCanvas} />
+          </div>
         </div>
 
         <div className={styles.content}>
