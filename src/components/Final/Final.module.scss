@@ -26,6 +26,10 @@
   @include mobile {
     padding: 50px 20px 22px;
   }
+
+  @media (min-width: #{$bp-mobile + 1}) and (max-width: 1299px) {
+    min-height: 0;
+  }
 }
 
 .blob {
@@ -148,7 +152,7 @@
 
 .button {
   align-self: flex-start;
-  margin-bottom: dvw(91);
+  margin-bottom: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
