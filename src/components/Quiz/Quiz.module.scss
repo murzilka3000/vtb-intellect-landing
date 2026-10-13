@@ -56,11 +56,11 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .blobBlue,
 .blobPink {
-  width: dvw(931);
-  aspect-ratio: 931 / 853;
+  width: dvw(1075);
+  aspect-ratio: 1075 / 922;
   border-radius: dvw(500);
   filter: blur(50px);
-  transform: rotate(24.72deg);
+  transform: rotate(24.17deg);
 
   @include mobile {
     width: 520px;
@@ -70,8 +70,8 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 }
 
 .blobBlue {
-  top: dvw(156);
-  left: calc(50% - #{dvw(96)});
+  top: dvw(55);
+  left: calc(50% - #{dvw(286)});
   background: linear-gradient(263.85deg, rgba(66, 166, 255, 0.5) 2%, rgba(0, 75, 255, 0.5) 106.7%);
 
   @include mobile {
@@ -81,8 +81,8 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 }
 
 .blobPink {
-  top: dvw(221);
-  left: calc(50% + #{dvw(204)});
+  top: dvw(127);
+  left: calc(50% + #{dvw(53)});
   background: linear-gradient(-16.58deg, #ffb724 9.5%, #e93ac5 61.7%, #8e59ff 98.5%);
 
   @include mobile {
@@ -331,10 +331,12 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 }
 
 .resultImage {
+  --s: min(1px, 0.0694vw);
+
   position: absolute;
-  top: dvw(169);
-  right: dvw(-23);
-  width: dvw(443);
+  top: calc(var(--s) * var(--art-top));
+  right: calc(var(--s) * var(--art-right));
+  width: calc(var(--s) * var(--art-size));
   aspect-ratio: 1;
 
   &::before {
@@ -349,9 +351,9 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     position: relative;
     top: auto;
     right: auto;
-    width: 300px;
+    width: calc(var(--art-mobile) * 1px);
     max-width: 100%;
-    margin: 64px auto 19px;
+    margin: 70px auto 3px;
   }
 }
 
@@ -395,8 +397,8 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: min(887px, calc(100% - #{dvw(443)} + #{dvw(23)} - 24px));
-  margin-top: dvw(50);
+  max-width: min(887px, 100%);
+  margin-top: dvw(45);
   padding: dvw(30) dvw(28);
   border-radius: 30px;
   background: rgba(245, 249, 255, 0.7);
@@ -410,15 +412,32 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .detailsBlock {
   & + & {
-    margin-top: dvw(30);
-    padding-top: dvw(30);
+    margin-top: 20px;
+    padding-top: 20px;
     border-top: 1px solid rgba(204, 217, 240, 0.8);
 
     @include mobile {
-      margin-top: 15px;
-      padding-top: 15px;
+      margin-top: 10px;
+      padding-top: 10px;
     }
   }
+}
+
+.risk {
+  font-size: fluid(20, 27);
+  line-height: 1.35;
+}
+
+.tone_low {
+  color: #1fd747;
+}
+
+.tone_mid {
+  color: #fe7330;
+}
+
+.tone_high {
+  color: #fe3030;
 }
 
 .detailsTitle {

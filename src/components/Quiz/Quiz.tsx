@@ -52,17 +52,38 @@ export default function Quiz() {
               <p className={styles.resultLead}>{result.result.lead}</p>
             </div>
 
-            <div className={styles.resultImage} aria-hidden="true">
+            <div
+              className={styles.resultImage}
+              aria-hidden="true"
+              style={
+                {
+                  "--art-size": result.result.art.size,
+                  "--art-top": result.result.art.top,
+                  "--art-right": result.result.art.right,
+                  "--art-mobile": result.result.art.mobile,
+                } as React.CSSProperties
+              }
+            >
               <Image
                 src={result.image}
                 alt=""
                 fill
-                sizes="(max-width: 767px) 300px, 443px"
+                sizes="(max-width: 767px) 324px, 844px"
                 className={styles.resultImageImg}
               />
             </div>
 
             <div className={styles.details}>
+              <div className={styles.detailsBlock}>
+                <p className={styles.risk}>
+                  Уровень&nbsp;риска:{" "}
+                  <span className={styles[`tone_${result.result.risk.tone}`]}>
+                    {result.result.risk.level}
+                  </span>
+                  <br />
+                  Инвестпрофиль: {result.result.risk.profile}
+                </p>
+              </div>
               <div className={styles.detailsBlock}>
                 <h3 className={styles.detailsTitle}>Почему мы&nbsp;это рекомендуем:</h3>
                 <p className={styles.detailsText}>{result.result.why}</p>
