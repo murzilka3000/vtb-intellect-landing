@@ -9,8 +9,8 @@ type Face = { p: Vec[]; z: number; lower: boolean; i: number };
 const TAU = Math.PI * 2;
 const FACETS = 8;
 const TILT_X = 0.11;
-const SIZE_W = 5.6;
-const SIZE_H = 5;
+const SIZE_W = 4.7;
+const SIZE_H = 4.2;
 
 const rotY = (p: Vec, a: number): Vec => [
   p[0] * Math.cos(a) + p[2] * Math.sin(a),
