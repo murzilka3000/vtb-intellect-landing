@@ -16,6 +16,7 @@ export type Strategy = {
 };
 
 export const CONNECT_URL = "https://www.vtb.ru/personal/investicii/intellect/#how";
+export const INTELLECT_URL = "https://www.vtb.ru/personal/investicii/intellect/";
 
 export const strategies: Strategy[] = [
   {
