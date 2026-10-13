@@ -69,6 +69,7 @@ export default function Quiz() {
                 alt=""
                 fill
                 sizes="(max-width: 767px) 324px, 844px"
+                unoptimized
                 className={styles.resultImageImg}
               />
             </div>

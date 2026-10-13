@@ -12,6 +12,7 @@ export default function Final() {
           alt=""
           fill
           sizes="(max-width: 767px) 411px, 1056px"
+          unoptimized
           className={styles.imageImg}
         />
       </div>
