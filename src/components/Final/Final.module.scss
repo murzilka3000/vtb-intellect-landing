@@ -10,7 +10,6 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
   padding: dvw(64) $gutter dvw(44);
   border-radius: $radius-section $radius-section 0 0;
   background:
@@ -27,8 +26,8 @@
     padding: 50px 20px 22px;
   }
 
-  @media (min-width: #{$bp-mobile + 1}) and (max-width: 1299px) {
-    min-height: 0;
+  @media (min-width: 1300px) {
+    min-height: 100svh;
   }
 }
 
