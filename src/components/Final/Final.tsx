@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { INTELLECT_URL } from "@/data/strategies";
 import styles from "./Final.module.scss";
 
@@ -7,14 +6,7 @@ export default function Final() {
     <footer className={styles.final}>
       <div className={styles.blob} aria-hidden="true" />
       <div className={styles.image} aria-hidden="true">
-        <Image
-          src="/images/final/intellect.png"
-          alt=""
-          fill
-          sizes="(max-width: 767px) 411px, 1056px"
-          unoptimized
-          className={styles.imageImg}
-        />
+        <img src="/images/final/intellect.png" alt="" className={styles.imageImg} />
       </div>
       <div className={styles.shade} aria-hidden="true" />
 

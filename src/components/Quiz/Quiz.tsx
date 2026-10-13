@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { getResult, quiz } from "@/data/quiz";
 import { CONNECT_URL, strategies } from "@/data/strategies";
@@ -64,14 +63,7 @@ export default function Quiz() {
                 } as React.CSSProperties
               }
             >
-              <Image
-                src={result.image}
-                alt=""
-                fill
-                sizes="(max-width: 767px) 324px, 844px"
-                unoptimized
-                className={styles.resultImageImg}
-              />
+              <img src={result.image} alt="" className={styles.resultImageImg} />
             </div>
 
             <div className={styles.details}>
