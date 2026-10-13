@@ -150,7 +150,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr minmax(0, 731px);
+  grid-template-columns: minmax(0, 1fr) min(731px, 58%);
   gap: 40px;
   margin-top: dvw(62);
 
