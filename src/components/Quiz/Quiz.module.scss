@@ -322,6 +322,7 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .resultLead {
   max-width: 937px;
+  white-space: pre-line;
   color: $color-text-muted;
   font-size: fluid(18, 26);
   line-height: 1.35;
