@@ -15,8 +15,7 @@ export type Strategy = {
   };
 };
 
-export const CONNECT_URL = "https://online.sbpvtb.ru/i/cic/?from=vtbmi&service=autofollow";
-export const INTELLECT_URL = "https://www.vtb.ru/personal/investicii/intellect/#how";
+export const CONNECT_URL = "https://www.vtb.ru/personal/investicii/intellect/#how";
 
 export const strategies: Strategy[] = [
   {

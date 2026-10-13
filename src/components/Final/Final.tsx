@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { INTELLECT_URL } from "@/data/strategies";
+import { CONNECT_URL } from "@/data/strategies";
 import styles from "./Final.module.scss";
 
 export default function Final() {
@@ -28,7 +28,7 @@ export default function Final() {
           <br />в&nbsp;ВТБ Мои Инвестиции
         </p>
 
-        <a href={INTELLECT_URL} className={styles.button} target="_blank" rel="noopener noreferrer">
+        <a href={CONNECT_URL} className={styles.button} target="_blank" rel="noopener noreferrer">
           Подключить стратегию
         </a>
 
