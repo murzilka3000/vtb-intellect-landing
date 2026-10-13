@@ -20,22 +20,54 @@
 
 .blob {
   position: absolute;
-  top: dvw(-655);
-  left: calc(50% + #{dvw(30)});
-  width: dvw(931);
+  top: -45.5vw;
+  right: -19vw;
+  width: 64.6vw;
   aspect-ratio: 931 / 853;
-  border-radius: dvw(500);
+  border-radius: 34.7vw;
   opacity: 0.28;
   filter: blur(50px);
   background: linear-gradient(331deg, #ffb724 0%, #e93ac5 25%, #8e59ff 100%);
   pointer-events: none;
+  animation: blob-float 14s ease-in-out infinite;
+  will-change: transform;
 
   @include mobile {
     top: -215px;
-    left: 155px;
+    right: -209px;
+    left: auto;
     width: 484px;
     border-radius: 260px;
     filter: blur(26px);
+  }
+}
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.28;
+  }
+
+  30% {
+    transform: translate(-10%, 14%) scale(1.08);
+    opacity: 0.34;
+  }
+
+  60% {
+    transform: translate(-18%, 7%) scale(0.95);
+    opacity: 0.3;
+  }
+
+  80% {
+    transform: translate(-6%, 16%) scale(1.05);
+    opacity: 0.33;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
   }
 }
 
