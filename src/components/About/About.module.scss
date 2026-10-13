@@ -20,11 +20,11 @@
 
 .blob {
   position: absolute;
-  top: -45.5vw;
-  right: -19vw;
-  width: 64.6vw;
+  top: dvw(-655);
+  right: dvw(-271);
+  width: dvw(931);
   aspect-ratio: 931 / 853;
-  border-radius: 34.7vw;
+  border-radius: dvw(500);
   opacity: 0.28;
   filter: blur(50px);
   background: linear-gradient(331deg, #ffb724 0%, #e93ac5 25%, #8e59ff 100%);
