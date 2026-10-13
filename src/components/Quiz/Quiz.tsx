@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getResult, quiz } from "@/data/quiz";
 import { CONNECT_URL, strategies } from "@/data/strategies";
 import styles from "./Quiz.module.scss";
@@ -17,6 +17,11 @@ export default function Quiz() {
   const isDone = step === quiz.length;
   const current = quiz[step];
   const result = isDone ? strategies.find((s) => s.id === getResult(answers)) : null;
+
+  useEffect(() => {
+    if (!isDone || !window.matchMedia("(max-width: 767px)").matches) return;
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [isDone]);
 
   const choose = (index: number) => {
     if (selected !== null) return;
