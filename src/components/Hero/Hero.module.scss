@@ -208,22 +208,13 @@
 
 .glow {
   position: absolute;
-  top: -3.3%;
-  left: -6.1%;
-  width: 112%;
-  aspect-ratio: 1;
-  animation: glow-pulse 4.5s ease-in-out infinite;
+  inset: -6%;
   background: radial-gradient(
-    45.5% 45.5% at 50% 54.5%,
+    45.5% 45.5% at 50% 50%,
     rgba(255, 255, 255, 0.5) 0%,
     rgba(255, 255, 255, 0) 78%
   );
-
-  @include mobile {
-    top: 21.5%;
-    left: 6%;
-    width: 87.75%;
-  }
+  animation: glow-pulse 4.5s ease-in-out infinite;
 }
 
 .crystalCanvas {
