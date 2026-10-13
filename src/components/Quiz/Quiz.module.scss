@@ -56,36 +56,38 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
 .blobBlue,
 .blobPink {
-  width: dvw(1202);
-  aspect-ratio: 1202 / 1164;
+  width: dvw(931);
+  aspect-ratio: 931 / 853;
   border-radius: dvw(500);
+  filter: blur(50px);
+  transform: rotate(24.72deg);
 
   @include mobile {
+    width: 520px;
     border-radius: 280px;
+    filter: blur(30px);
   }
 }
 
 .blobBlue {
-  top: 0;
-  left: calc(50% - #{dvw(232)});
-  background: linear-gradient(221deg, rgba(66, 166, 255, 0.5) 4%, rgba(0, 75, 255, 0.5) 100%);
+  top: dvw(156);
+  left: calc(50% - #{dvw(96)});
+  background: linear-gradient(263.85deg, rgba(66, 166, 255, 0.5) 2%, rgba(0, 75, 255, 0.5) 106.7%);
 
   @include mobile {
-    top: -90px;
-    left: -79px;
-    width: 672px;
+    top: -3px;
+    left: -3px;
   }
 }
 
 .blobPink {
-  top: dvw(65);
-  left: calc(50% + #{dvw(68)});
-  background: $gradient-blob;
+  top: dvw(221);
+  left: calc(50% + #{dvw(204)});
+  background: linear-gradient(-16.58deg, #ffb724 9.5%, #e93ac5 61.7%, #8e59ff 98.5%);
 
   @include mobile {
-    top: 20px;
-    left: 53px;
-    width: 646px;
+    top: 94px;
+    left: 116px;
   }
 }
 
