@@ -392,13 +392,14 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 887px;
+  max-width: min(887px, calc(100% - #{dvw(443)} + #{dvw(23)} - 24px));
   margin-top: dvw(50);
   padding: dvw(30) dvw(28);
   border-radius: 30px;
   background: rgba(245, 249, 255, 0.7);
 
   @include mobile {
+    max-width: none;
     margin-top: 0;
     padding: 30px 28px;
   }
