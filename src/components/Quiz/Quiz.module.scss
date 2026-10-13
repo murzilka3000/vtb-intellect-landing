@@ -347,6 +347,10 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
     animation: glow 5s ease-in-out infinite;
   }
 
+  @media (min-width: #{$bp-mobile + 1}) and (max-width: 1199px) {
+    display: none;
+  }
+
   @include mobile {
     position: relative;
     top: auto;
