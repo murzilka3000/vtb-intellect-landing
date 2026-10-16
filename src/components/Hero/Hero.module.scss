@@ -248,9 +248,11 @@
   font-size: clamp(28px, 4.03vw, 58px);
   font-weight: 400;
   line-height: 1.172;
+  white-space: nowrap;
 
   @include mobile {
     max-width: 392px;
+    white-space: normal;
     font-size: 36px;
     line-height: 40px;
 
@@ -261,13 +263,9 @@
   }
 }
 
-.titleLine {
-  display: block;
-  white-space: nowrap;
-
+.titleBreak {
   @include mobile {
-    display: inline;
-    white-space: normal;
+    display: none;
   }
 }
 
