@@ -150,9 +150,9 @@
   inset: 52.5% 0 0;
   background: linear-gradient(
     180deg,
-    rgba(226, 236, 255, 0) 0%,
-    rgba(226, 236, 255, 0.1) 45%,
-    rgba(226, 236, 255, 0.72) 100%
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0.72) 100%
   );
 
   @include mobile {

@@ -6,16 +6,20 @@ import { CONNECT_URL, strategies } from "@/data/strategies";
 import styles from "./Quiz.module.scss";
 
 const NEXT_DELAY = 400;
+const SWAP_DELAY = 280;
 
 export default function Quiz() {
   const [answers, setAnswers] = useState<number[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
+  const [shownId, setShownId] = useState<string | null>(null);
+  const [leaving, setLeaving] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   const step = answers.length;
   const isDone = step === quiz.length;
   const current = quiz[step];
-  const result = isDone ? strategies.find((s) => s.id === getResult(answers)) : null;
+  const resultId = isDone ? (shownId ?? getResult(answers)) : null;
+  const result = resultId ? strategies.find((s) => s.id === resultId) : null;
 
   useEffect(() => {
     if (!isDone || !window.matchMedia("(max-width: 767px)").matches) return;
@@ -31,9 +35,22 @@ export default function Quiz() {
     }, NEXT_DELAY);
   };
 
+  const showNext = () => {
+    if (!result || leaving) return;
+    const index = strategies.findIndex((s) => s.id === result.id);
+    const next = strategies[(index + 1) % strategies.length];
+    setLeaving(true);
+    window.setTimeout(() => {
+      setShownId(next.id);
+      setLeaving(false);
+    }, SWAP_DELAY);
+  };
+
   const restart = () => {
     setAnswers([]);
     setSelected(null);
+    setShownId(null);
+    setLeaving(false);
     sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -44,7 +61,10 @@ export default function Quiz() {
           <div className={`${styles.blob} ${styles.blobBlue}`} aria-hidden="true" />
           <div className={`${styles.blob} ${styles.blobPink}`} aria-hidden="true" />
 
-          <div key={result.id} className={`${styles.container} ${styles.fade}`}>
+          <div
+            key={result.id}
+            className={`${styles.container} ${leaving ? styles.leaving : styles.fade}`}
+          >
             <div className={styles.resultHead}>
               <p className={styles.eyebrow}>Вам&nbsp;подходит</p>
               <h2 className={styles.resultTitle}>{result.title}</h2>
@@ -70,9 +90,7 @@ export default function Quiz() {
               <div className={styles.detailsBlock}>
                 <p className={styles.risk}>
                   Уровень&nbsp;риска:{" "}
-                  <span className={styles[`tone_${result.result.risk.tone}`]}>
-                    {result.result.risk.level}
-                  </span>
+                  {result.result.risk.level}
                   <br />
                   Инвестпрофиль: {result.result.risk.profile}
                 </p>
@@ -97,6 +115,10 @@ export default function Quiz() {
               </a>
               <button type="button" className={styles.secondary} onClick={restart}>
                 Пройти ещё раз
+              </button>
+              <button type="button" className={styles.next} onClick={showNext}>
+                Следующая стратегия
+                <span aria-hidden="true">→</span>
               </button>
             </div>
           </div>

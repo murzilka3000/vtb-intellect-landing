@@ -101,6 +101,23 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   animation: fade-in 0.4s ease both;
 }
 
+.leaving {
+  animation: fade-out 0.28s ease both;
+  pointer-events: none;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -436,18 +453,6 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
   line-height: 1.35;
 }
 
-.tone_low {
-  color: #1fd747;
-}
-
-.tone_mid {
-  color: #fe7330;
-}
-
-.tone_high {
-  color: #fe3030;
-}
-
 .detailsTitle {
   margin-bottom: 7px;
   font-size: fluid(22, 27);
@@ -513,5 +518,42 @@ $gradient-blob: linear-gradient(331deg, #ffb724 0%, #e93ac5 59%, #8e59ff 100%);
 
   &:hover {
     color: $color-brand;
+  }
+
+  @include mobile {
+    order: 3;
+  }
+}
+
+.next {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  min-height: dvw(64);
+  margin-left: auto;
+  padding: dvw(14) dvw(40);
+  border: 2px solid $color-brand-dark;
+  border-radius: 18px;
+  background: $color-white;
+  color: $color-brand-dark;
+  font: inherit;
+  font-size: fluid(20, 24);
+  line-height: 1.35;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: #eaf2ff;
+  }
+
+  @include mobile {
+    order: 2;
+    width: 100%;
+    min-height: 54px;
+    margin-left: 0;
+    padding: 12px 20px;
+    border-radius: 14px;
+    font-size: 20px;
   }
 }
