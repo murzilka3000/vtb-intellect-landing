@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 
 const inter = Inter({
-  variable: "--font-fallback",
   subsets: ["latin", "cyrillic"],
+  display: "swap",
+  fallback: ["Roboto", "Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ru" className={inter.variable}>
-      <body>{children}</body>
+    <html lang="ru">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

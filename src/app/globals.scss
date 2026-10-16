@@ -1,9 +1,5 @@
 @use "../styles/variables" as *;
 
-:root {
-  --font-main: "VTB Group", var(--font-fallback), Arial, sans-serif;
-}
-
 *,
 *::before,
 *::after {
@@ -21,7 +17,6 @@ body {
 body {
   background: $color-white;
   color: #0a1f44;
-  font-family: $font-main;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
