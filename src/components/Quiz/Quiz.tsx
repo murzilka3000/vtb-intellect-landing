@@ -40,6 +40,9 @@ export default function Quiz() {
     const index = strategies.findIndex((s) => s.id === result.id);
     const next = strategies[(index + 1) % strategies.length];
     setLeaving(true);
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
     window.setTimeout(() => {
       setShownId(next.id);
       setLeaving(false);
