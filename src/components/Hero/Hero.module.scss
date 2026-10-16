@@ -251,15 +251,10 @@
   white-space: nowrap;
 
   @include mobile {
-    max-width: 392px;
     white-space: normal;
-    font-size: 36px;
-    line-height: 40px;
-
-    @media (max-width: 359px) {
-      font-size: 32px;
-      line-height: 36px;
-    }
+    font-size: clamp(28px, calc((100vw - 36px) * 0.092), 36px);
+    line-height: 1.11;
+    letter-spacing: -0.02em;
   }
 }
 
