@@ -98,6 +98,10 @@ export default function HeroCrystal({ className }: { className?: string }) {
     if (!canvas || !ctx) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isFirefox = /firefox/i.test(navigator.userAgent);
+    const maxDpr = isFirefox ? 1.25 : 2;
+    const frameInterval = isFirefox ? 1000 / 30 : 0;
+    const orbitSamples = isFirefox ? 160 : 384;
     const texture = createTexture();
     let W = 0;
     let H = 0;
@@ -108,7 +112,7 @@ export default function HeroCrystal({ className }: { className?: string }) {
     let visible = true;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
       W = canvas.clientWidth;
       H = canvas.clientHeight;
       canvas.width = W * dpr;
@@ -183,7 +187,7 @@ export default function HeroCrystal({ className }: { className?: string }) {
       }
 
       const orbit = (radius: number, tilt: number, spin: number, roll: number) => {
-        const count = 384;
+        const count = orbitSamples;
         const width = 0.225;
         const thick = 0.04;
         const point = (a: number, r: number, h: number) =>
@@ -319,6 +323,10 @@ export default function HeroCrystal({ className }: { className?: string }) {
     };
 
     const tick = (ms: number) => {
+      if (last && ms - last < frameInterval - 1) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
       const dt = last ? Math.min((ms - last) / 1000, 0.05) : 0;
       last = ms;
       if (visible && !document.hidden) {

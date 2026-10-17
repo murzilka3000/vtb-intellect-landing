@@ -57,6 +57,10 @@
     inset: -4.6% -46.3% 33.3% -44.2%;
     filter: blur(20px);
   }
+
+  @supports (-moz-appearance: none) {
+    filter: none;
+  }
 }
 
 .videoMedia {
