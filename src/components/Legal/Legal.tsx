@@ -24,7 +24,6 @@ export default function Legal({ document }: { document: LegalDocument }) {
         <Link href="/" className={styles.back}>
           <span aria-hidden="true">←</span> На главную
         </Link>
-        <p className={styles.eyebrow}>Правовая информация</p>
         <h1 className={styles.title}>{document.title}</h1>
 
         <article className={styles.card}>
