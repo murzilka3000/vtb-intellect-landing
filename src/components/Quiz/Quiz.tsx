@@ -58,7 +58,7 @@ export default function Quiz() {
   };
 
   return (
-    <section ref={sectionRef} className={`${styles.quiz} ${isDone ? styles.isResult : ""}`}>
+    <section id="quiz" ref={sectionRef} className={`${styles.quiz} ${isDone ? styles.isResult : ""}`}>
       {result ? (
         <>
           <div className={`${styles.blob} ${styles.blobBlue}`} aria-hidden="true" />
