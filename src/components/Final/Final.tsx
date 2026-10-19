@@ -37,7 +37,7 @@ export default function Final() {
               Политика конфиденциальности
             </Link>
             <Link href="/cookie-policy" target="_blank">
-              Согласие на использование cookies
+              Согласие на использование куки
             </Link>
           </p>
           <p className={styles.disclaimer}>
