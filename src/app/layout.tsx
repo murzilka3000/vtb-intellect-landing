@@ -10,9 +10,10 @@ const vtbGroup = localFont({
   fallback: ["Roboto", "Arial", "sans-serif"],
 });
 
-const title = "«Интеллект» от ВТБ Мои Инвестиции";
+const title =
+  "Спецпроект ВТБ Мои Инвестиции х Frank Media: «Сервис \"Интеллект\"»";
 const description =
-  "Стратегия инвестиций, которая подходит именно вам. Четыре стратегии. Разные подходы к рынку.";
+  "«Интеллект» от ВТБ Мои Инвестиции: четыре стратегии инвестиций. Разные подходы к рынку";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vtb-intellect-landing.vercel.app"),
