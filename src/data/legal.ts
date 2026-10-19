@@ -147,7 +147,7 @@ export const PRIVACY_POLICY: LegalDocument = {
 };
 
 export const COOKIE_POLICY: LegalDocument = {
-  "title": "Политика использования файлов cookie",
+  "title": "Политика использования файлов куки (cookie)",
   "sections": [
     {
       "title": "Общие положения",
@@ -155,7 +155,7 @@ export const COOKIE_POLICY: LegalDocument = {
       "items": [
         {
           "num": "1.1",
-          "text": "Настоящая Политика описывает использование файлов cookie и аналогичных технологий на сайте https://vtb-intellect.frankmedia.ru/ (далее — Сайт) для работы сервиса «Яндекс Метрика», включая Вебвизор."
+          "text": "Настоящая Политика описывает использование файлов куки (далее - cookie) и аналогичных технологий на сайте https://vtb-intellect.frankmedia.ru/ (далее — Сайт) для работы сервиса «Яндекс Метрика», включая Вебвизор."
         },
         {
           "num": "1.2",
