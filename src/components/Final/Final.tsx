@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { INTELLECT_URL } from "@/data/strategies";
 import styles from "./Final.module.scss";
 
@@ -27,9 +28,17 @@ export default function Final() {
 
         <div className={styles.legal}>
           <p className={styles.marking}>
-            <span>erid: ...</span>
+            <span>erid: 2SDnjeJau2k</span>
             <span>Реклама 18+</span>
             <span>Рекламодатель: Банк ВТБ (ПАО), ИНН 7702070139</span>
+          </p>
+          <p className={styles.links}>
+            <Link href="/privacy-policy" target="_blank">
+              Политика конфиденциальности
+            </Link>
+            <Link href="/cookie-policy" target="_blank">
+              Согласие на использование cookies
+            </Link>
           </p>
           <p className={styles.disclaimer}>
             Банк ВТБ (ПАО) не&nbsp;гарантирует доходность инвестиций. Не&nbsp;является индивидуальной

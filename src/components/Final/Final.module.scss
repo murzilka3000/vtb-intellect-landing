@@ -216,6 +216,45 @@
   }
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: dvw(16);
+  color: #c6d9ff;
+  font-size: fluid(12, 19);
+  line-height: 1.35;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  a + a::before {
+    content: "·";
+    display: inline-block;
+    margin: 0 0.6em;
+    text-decoration: none;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    margin-top: 16px;
+
+    a + a {
+      margin-top: 4px;
+    }
+
+    a + a::before {
+      content: none;
+    }
+  }
+}
+
 .disclaimer {
   margin-top: dvw(30);
   color: rgba(198, 217, 255, 0.7);
