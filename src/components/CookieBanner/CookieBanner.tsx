@@ -52,7 +52,7 @@ export default function CookieBanner() {
     <div className={styles.banner} role="dialog" aria-label="Использование файлов куки">
       <p className={styles.text}>
         На&nbsp;сайте осуществляется обработка пользовательских данных с&nbsp;использованием куки
-        в&nbsp;соответствии с{" "}
+        в&nbsp;соответствии с{"\u00a0"}
         <Link href="/cookie-policy" target="_blank" className={styles.link}>
           Политикой об&nbsp;использовании файлов Куки
         </Link>
