@@ -32,12 +32,18 @@ export default function Legal({ document }: { document: LegalDocument }) {
               <h2 className={styles.heading}>
                 {section.num}. {section.title}
               </h2>
-              {section.items.map((item) => (
-                <p key={item.num} className={styles.item}>
-                  <span className={styles.num}>{item.num}</span>
-                  <span>{renderText(item.text)}</span>
-                </p>
-              ))}
+              {section.items.map((item) =>
+                item.subheading ? (
+                  <h3 key={item.num} className={styles.subheading}>
+                    {item.num}. {item.text}
+                  </h3>
+                ) : (
+                  <p key={item.num} className={styles.item}>
+                    <span className={styles.num}>{item.num}</span>
+                    <span>{renderText(item.text)}</span>
+                  </p>
+                ),
+              )}
             </section>
           ))}
         </article>

@@ -19,6 +19,20 @@ const description =
 
 const METRIKA_ID = 113670974;
 
+const VK_ID = "3807144";
+
+const vkPixelInit = `
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "${VK_ID}", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+`;
+
 const metrikaInit = `
 (function(m,e,t,r,i,k,a){
   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -46,6 +60,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Script id="yandex-metrika" strategy="afterInteractive">
           {metrikaInit}
         </Script>
+        <Script id="vk-pixel" strategy="afterInteractive">
+          {vkPixelInit}
+        </Script>
+        <noscript>
+          <div>
+            <img
+              src={`https://top-fwz1.mail.ru/counter?id=${VK_ID};js=na`}
+              style={{ position: "absolute", left: "-9999px" }}
+              alt="Top.Mail.Ru"
+            />
+          </div>
+        </noscript>
         <noscript>
           <div>
             <img
